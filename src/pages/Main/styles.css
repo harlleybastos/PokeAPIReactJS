@@ -1,0 +1,27 @@
+.pokedex {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+}
+
+.pokedex ul {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 15px;
+}
+
+ul .pokeLI {
+  justify-content: center;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  min-height: 150px;
+  padding: 15px;
+  background: #F3F3F3;
+}
+
+ul .pokeLI img {
+  width: 100%;
+}
