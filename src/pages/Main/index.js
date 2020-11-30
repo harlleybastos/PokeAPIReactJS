@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import api from '../../services/api';
+import React from 'react';
+import { usePokemons } from '../../contexts/Pokes';
+
 // eslint-disable-next-line import/no-unresolved
 import './styles.css';
 
 function Main() {
-  const [pokemons, setPokemons] = useState([]);
-
-  useEffect(() => {
-    async function pegarPokes() {
-      const response = await api.get('');
-      const data = await response.data;
-      setPokemons(data.results);
-    }
-    pegarPokes();
-  }, []);
+  const { pokemon } = usePokemons();
 
   const pokeURL = (poke) => {
     const pokeNum = poke.url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '');
@@ -29,7 +21,7 @@ function Main() {
   return (
     <div className="pokedex">
       <ul>
-        {pokemons.map(pokeURL)}
+        {pokemon.map(pokeURL)}
       </ul>
     </div>
 
