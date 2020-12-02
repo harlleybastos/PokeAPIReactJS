@@ -1,10 +1,8 @@
 import React from 'react';
-import './styles.css';
+import { HeaderPoke } from './styles';
 
-function Header() {
-  return (
-    <header className="main-header">PokeReact</header>
-  );
-}
+const Header = () => (
+  <HeaderPoke>PokeReact</HeaderPoke>
+);
 
 export default Header;

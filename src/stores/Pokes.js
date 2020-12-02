@@ -2,11 +2,13 @@ import React, {
   createContext, useState, useEffect, useContext,
 } from 'react';
 import api from '../services/api';
+import { CardPoke } from '../components/CardPokemon/styles';
 
 export const PokeContext = createContext();
 
 function pegarPokemons({ children }) {
   const [filteredPokemon, setFilteredPokemon] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function pegaPoke() {
@@ -16,11 +18,15 @@ function pegarPokemons({ children }) {
       setFilteredPokemon(results);
     }
     pegaPoke();
+    setTimeout(() => {
+      setLoading(true);
+    }, 3000);
   }, []);
 
   return (
     <PokeContext.Provider value={{
       filteredPokemon,
+      loading,
     }}
     >
       {children}
@@ -30,17 +36,17 @@ function pegarPokemons({ children }) {
 
 export function usePokemons() {
   const context = useContext(PokeContext);
-  const { filteredPokemon } = context;
-  return { filteredPokemon };
+  const { filteredPokemon, loading } = context;
+  return { filteredPokemon, loading };
 }
 
-export function urlTratada(poke, index) {
+export function showPokemon(poke, index) {
   const imgURL = `https://pokeres.bastionbot.org/images/pokemon/${index + 1}.png`;
   return (
-    <li className="pokeLI" key={index + 1}>
+    <CardPoke key={index + 1}>
       <h1>{poke.name}</h1>
       <img src={imgURL} alt="img" />
-    </li>
+    </CardPoke>
   );
 }
 

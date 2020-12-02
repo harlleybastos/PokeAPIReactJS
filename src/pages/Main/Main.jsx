@@ -1,17 +1,22 @@
 import React from 'react';
-import { usePokemons, urlTratada } from '../../stores/Pokes';
+import { usePokemons, showPokemon } from '../../stores/Pokes';
 import Header from '../../components/Header';
-import './styles.css';
+import { PokeballLoading } from '../../components/Pokeball/PokeballLoading/styles';
+import { PokeList } from '../../components/Pokedex/styles';
 
 function Main() {
-  const { filteredPokemon } = usePokemons();
+  const { filteredPokemon, loading } = usePokemons();
+
+  const renderShowPokemon = () => (
+    <PokeList>
+      <ul>{filteredPokemon.map(showPokemon)}</ul>
+    </PokeList>
+  );
 
   return (
     <>
       <Header />
-      <div className="pokedex">
-        <ul>{filteredPokemon.map(urlTratada)}</ul>
-      </div>
+      {loading ? renderShowPokemon() : <PokeballLoading />}
     </>
   );
 }

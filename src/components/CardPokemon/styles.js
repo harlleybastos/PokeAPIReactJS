@@ -1,19 +1,6 @@
-.pokedex {
-  flex: 1;
-  justify-content: center;
-  position: relative;
-  flex-flow: column;
-  padding: 50px;
-  display: flex;
-}
+import styled from 'styled-components';
 
-.pokedex ul {
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 3fr));
-  grid-gap: 20px;
-}
-
-ul .pokeLI {
+export const CardPoke = styled.li`
   justify-content: center;
   position: relative;
   display: flex;
@@ -21,18 +8,19 @@ ul .pokeLI {
   min-height: 200px;
   padding: 50px;
   background: #F3F3F3;
-}
 
-ul .pokeLI img {
+  img{
   margin-top: 20px;
   padding:20px;
   width: 100%;
-}
-ul .pokeLI h1{
-  text-align: center;
+  }
+
+  h1{
+    text-align: center;
   font-size: 1.8rem;
   font-family: 'Roboto', sans-serif;
   text-transform: capitalize;
   justify-content: center;
   font-weight: 400;
-}
+  }
+`;
