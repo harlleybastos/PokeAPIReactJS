@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+export const PokeType = styled.span`
+  background-color: #ffffff;
+  justify-content: center;
+  flex-direction: center;
+  text-align: center;
+  height: 30px;
+  padding:5px;
+`;
+
 export const CardPoke = styled.li`
   justify-content: center;
   position: relative;
@@ -23,4 +32,5 @@ export const CardPoke = styled.li`
   justify-content: center;
   font-weight: 400;
   }
+
 `;

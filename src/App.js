@@ -1,16 +1,16 @@
 import React from 'react';
-
-import Pokes from './stores/Pokes';
 import Main from './pages/Main';
+import PegarPokemons from './stores/Pokes';
 import './App.css';
 
 function App() {
   return (
-    <Pokes>
+    <PegarPokemons>
+
       <div className="App">
         <Main />
       </div>
-    </Pokes>
+    </PegarPokemons>
   );
 }
 
